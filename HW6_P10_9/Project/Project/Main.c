@@ -27,7 +27,7 @@ int main(void)
 }
 void fillDeck(Card* const wDeck, const char* wFace[], const char* wSuit[])
 {
-	for (size_t i = 0; i < CARDS; ++i)
+	for (int i = 0; i < CARDS; ++i)
 	{
 		wDeck[i].face = wFace[i % FACES];
 		wDeck[i].suit = wSuit[i / FACES];
@@ -35,9 +35,9 @@ void fillDeck(Card* const wDeck, const char* wFace[], const char* wSuit[])
 }
 void shuffle(Card* const wDeck)
 {
-	for (size_t i = 0; i < CARDS; ++i)
+	for (int i = 0; i < CARDS; ++i)
 	{
-		size_t j = rand() % CARDS;
+		int j = rand() % CARDS;
 		Card temp = wDeck[i];
 		wDeck[i] = wDeck[j];
 		wDeck[j] = temp;
@@ -45,7 +45,7 @@ void shuffle(Card* const wDeck)
 }
 void deal(const Card* const wDeck)
 {
-	for (size_t i = 0; i < CARDS; ++i)
+	for (int i = 0; i < CARDS; ++i)
 	{
 		printf("%5s of %-8s%s", wDeck[i].face, wDeck[i].suit, (i + 1) % 4 ? "  " : "\n");
 	}
